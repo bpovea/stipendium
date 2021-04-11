@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# STIPENDIUM APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple Web application to compute the total value that an employer uses monthly for each employee, or compute the equivalent gross salary based on an invoice subtotal/total.
 
-## Available Scripts
+## Why
 
-In the project directory, you can run:
+Recently, remote work from other countries has become popular in Ecuador. Proposals usually look very good, but, there are many things that you should take care of. For example, a remote payment of $1500.00 is equivalent to $1100.00 in local gross salary, because many benefits are included on a local contract and should be considered, and usually, most people omit them or they don't know how to calculate it.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How calculations works
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Computation uses as inputs: 
+- Gross salary
+- Other optional incomes:
+  - Bonus
+  - Annual base profit
+  - Other fixed monthly incomes
 
-### `npm test`
+The result will be:
+- Job's laws discounts:
+  - Personal contribution
+  - Spouse contribution (if it's necesary)
+- Other incomes:
+  - Monthly/Provisioned thirteenth salary
+  - Monthly/Provisioned fourteenth salary
+  - Paid vacations
+- Company contributions:
+  - Company contribution
+  - IECE SECAP contribution
+- Net salary
+- Cost per employee
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Another option, if you are interested in how much represents an invoice value in a local gross salary, you can just set the invoice subtotal or total, and the conversion will be computed.
