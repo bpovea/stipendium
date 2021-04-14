@@ -11,7 +11,6 @@ const BodySection = () => (
         <Row>
             <Col>
                 <h3>Contrato Ecuatoriano</h3>
-                <p>Aquí irá el form de cálculo Ecuatoriano</p>
                 <EcuadorianContract />
             </Col>
             <Col>

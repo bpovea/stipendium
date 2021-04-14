@@ -44,8 +44,8 @@ const EcuadorianContract = () => {
         e.preventDefault();
         setShowResults(true);
         let base = parseFloat(data.grossSalary + data.taxableIncomes);
-        let companyContribution = base * 0.001115;
-        let ieceSecap = base * 0.0001
+        let companyContribution = base * 0.1115;
+        let ieceSecap = base * 0.01
         let personalContribution = base * -0.0945
         let otherIncomes = data.noTaxableIncomes + (data.annualBaseProfit / 12)
         let netSalary = (base + personalContribution).toFixed(2)
