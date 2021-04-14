@@ -1,6 +1,6 @@
 # STIPENDIUM APP
 
-This project is a simple Web application to compute the total value that an employer uses monthly for each employee, or compute the equivalent gross salary based on an invoice subtotal/total.
+This project is a simple ReactJS Web application to compute the total value that an employer uses monthly for each employee, or compute the equivalent gross salary based on an invoice subtotal/total.
 
 ## Why
 
@@ -31,3 +31,7 @@ The result will be:
 - Cost per employee
 
 Another option, if you are interested in how much represents an invoice value in a local gross salary, you can just set the invoice subtotal or total, and the conversion will be computed.
+
+## Author
+
+Byron Povea [github](https://github.com/bpovea)
