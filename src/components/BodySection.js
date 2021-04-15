@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import EcuadorianContract from './EcuadorianContracts';
+import InvoicedContract from './InvoicedContracts';
 
 // state less Component
 const BodySection = () => (
@@ -15,7 +16,7 @@ const BodySection = () => (
             </Col>
             <Col>
                 <h3>Contrato Por Facturación</h3>
-                <p>Aquí irá el form de cálculo por facturación</p>
+                <InvoicedContract />
             </Col>
         </Row>
     </Container>

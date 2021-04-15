@@ -6,6 +6,9 @@ This project is a simple ReactJS Web application to compute the total value that
 
 Recently, remote work from other countries has become popular in Ecuador. Proposals usually look very good, but, there are many things that you should take care of. For example, a remote payment of $1500.00 is equivalent to $1100.00 in local gross salary, because many benefits are included on a local contract and should be considered, and usually, most people omit them or they don't know how to calculate it.
 
+## Live Preview
+
+I'm working on that
 
 ## How calculations works
 
