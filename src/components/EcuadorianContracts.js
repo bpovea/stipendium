@@ -47,10 +47,10 @@ const EcuadorianContract = () => {
         let companyContribution = base * 0.1115;
         let ieceSecap = base * 0.01
         let personalContribution = base * -0.0945
-        let otherIncomes = data.noTaxableIncomes + (data.annualBaseProfit / 12)
+        let otherIncomes = data.noTaxableIncomes + (data.annualBaseProfit * 0.083)
         let netSalary = (base + personalContribution).toFixed(2)
-        let finalCost = (base + (base / 12) +
-            (result.fourteenthSalary / 12) +
+        let finalCost = (base + (base * 0.083) +
+            (result.fourteenthSalary * 0.083) +
             companyContribution +
             ieceSecap +
             otherIncomes).toFixed(2)

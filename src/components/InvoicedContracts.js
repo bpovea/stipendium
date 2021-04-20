@@ -39,14 +39,16 @@ const InvoicedContract = () => {
         let retention = -data.invoiceSubtotal * 0.1;
         let iva = data.invoiceSubtotal * 0.12;
         let invoiceTotal = data.invoiceSubtotal + iva + retention;
-        let netIncome = invoiceTotal + bankTax;
-        let grossSalary = (data.invoiceSubtotal - 33.33 - (0.83 * data.annualBaseProfit)) / 1.2045;
+        let netIncome = data.invoiceSubtotal + retention;
+        let netOutIncome = netIncome + bankTax;
+        let grossSalary = ((data.invoiceSubtotal + iva) - (33.33) - (0.83 * data.annualBaseProfit)) / 1.2045;
         setResult({
             ...result,
             retention: retention,
             iva: iva,
             invoiceTotal: invoiceTotal,
             netIncome: netIncome,
+            netOutIncome: netOutIncome,
             grossSalary: (grossSalary).toFixed(2),
         });
     };
@@ -79,18 +81,22 @@ const InvoicedContract = () => {
                         label='Total Factura' name='invoiceTotal' type="number"
                         value={result.invoiceTotal} readOnly={true} />
                     <FormInput
+                        label='Ingreso Neto Local' name='netIncome' type="number"
+                        helpText="Es el subtotal de la factura - retención. El IVA es adicional, pero no se considera como ingreso neto, porque debe ser declarado"
+                        value={result.netIncome} readOnly={true} />
+                    <FormInput
                         label='Comisión del Banco' name='bankTax' type="number"
                         helpText="Es el valor fijo de comisión por transferencias internacionales."
                         value={bankTax} readOnly={true} />
                     <FormInput
-                        label='Ingreso Neto' name='netIncome' type="number"
-                        value={result.netIncome} readOnly={true} />
+                        label='Ingreso Neto Desde el Extranjero' name='netOutIncome' type="number"
+                        value={result.netOutIncome} readOnly={true} />
                     <FormInput
                         label='Equivalente Salario Bruto*' name='grossSalary' type="number"
                         value={result.grossSalary} readOnly={true} />
                     <p>
                         *Este valor es el equivalente al valor de oferta salarial en Ecuador. Se asume también que se cobrará el IVA como adicional,
-                        una utilidad anual de ${data.annualBaseProfit}, afiliación sobre este salario y decimos por ley y sin fondo de reserva (se empieza a percibir pasado un año).
+                        una utilidad anual de ${data.annualBaseProfit}, afiliación sobre este salario, decimos por ley y sin fondo de reserva (se empieza a percibir pasado un año).
                     </p>
                 </Fragment>
             }
