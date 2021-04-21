@@ -1,0 +1,16 @@
+name: update via ssh
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: update and deploy
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: ./pullAndDeploy.sh
+          host: ${{ secrets.HOST }}
+          username: root
+          passphrase: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.PRIVATE_KEY}}
