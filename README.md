@@ -8,7 +8,7 @@ Recently, remote work from other countries has become popular in Ecuador. Propos
 
 ## Live Preview
 
-I'm working on that
+click [HERE](stipendium.bycarga.com)
 
 ## How calculations works
 
