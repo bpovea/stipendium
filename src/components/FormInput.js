@@ -17,10 +17,10 @@ const FormInput = (props) => {
 
     return (
         <Form.Group as={Row}>
-            <Form.Label column sm="7">
+            <Form.Label column md="7" sm="8">
                 {props.label} {props.helpText && <FaQuestionCircle onClick={clickHelp} className="help" />}
             </Form.Label>
-            <Col sm="3">
+            <Col md="3" sm="4">
                 <Form.Control value={props.value} name={props.name} onChange={props.handleOnChange} type={props.type} readOnly={props.readOnly} />
             </Col>
             <Col sm="12">
