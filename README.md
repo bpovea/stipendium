@@ -41,19 +41,55 @@ Another option, if you are interested in how much represents an invoice value in
 
 This project uses [Github Actions](https://docs.github.com/en/actions) to automate updating server on each pull, this is taking advantage of [run-ssh-command](https://github.com/marketplace/actions/run-ssh-command) action in Marketplace.
 
-You can see the acction code on: *.github/workflows/update-action.yml*, the bash code on server is:
+You can see the acction code on: *.github/workflows/update-action.yml*.
+
+the bash code on server is:
 
 ```
 #!/usr/bin/env bash
 
-cd /projec/directory/path
-git pull origin main
+cd /path/to/my/project
+git pull --rebase
+
+# Store files changed files 
+changedFiles="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+# Search for coincidence by specific filename stored in $1
+checkForChangedFiles() {
+    echo "$changedFiles" | grep --quiet "$1" && eval "$2"
+}
+# If change is detected, install to refresh dependencies
+packageJsonHasChanged() {
+  echo "Changes to package.json detected, installing updates"
+  npm install
+}
+
+checkForChangedFiles package.json packageJsonHasChanged
+
+# Stop stipendium service if it's running
 node_process_id=$(pidof node)
-if [[ -z $node_process_id  ]]
+echo $node_process_id
+if [[ ! -z $node_process_id  ]];
   then
-    npm start &
+    service stipendium stop
 fi
+
+# Run again service
+service stipendium start
 ``` 
+Initially, the app was executed using (npm start &) to run in the background, but it causes a nonstop Github Action, to fix that, I improve the running of the web app by creating a new [service](https://medium.com/@alexeybaryshnikov/how-to-start-node-js-projects-as-service-without-docker-8a04f8a8b469):
+
+```
+[Unit]
+Description = My Web App
+
+[Service]
+ExecStart=/usr/bin/npm run start --prefix /path/to/my/project
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
 
 ## SSL certificate
 
